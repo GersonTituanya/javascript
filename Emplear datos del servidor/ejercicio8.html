@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Fetch a JSON file with XMLHttpRequest</h2>
+<p id="demo" onclick="mostrar(this)"></p>
+
+<script>
+const xmlhttp = new XMLHttpRequest();
+xmlhttp.onload = function() {
+  const myObj = JSON.parse(this.responseText);
+  document.getElementById("demo").innerHTML = myObj.name;
+  var nombre = document.getElementById('demo');
+  nombre.style.color='red';
+  nombre.style.fontWeight='bold';
+  nombre.style.fontSize=30+'px';
+  nombre.style.backgroundColor='lightgray';
+  nombre.style.width='max-content';
+}
+xmlhttp.open("GET", "json_demo.txt");
+xmlhttp.send();
+
+function mostrar(x){
+    alert(x.innerHTML)
+}
+</script>
+
+</body>
+</html>

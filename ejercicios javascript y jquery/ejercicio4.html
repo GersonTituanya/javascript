@@ -1,0 +1,65 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+</head>
+
+<body>
+
+    
+        <script>
+
+        var sleep = function(ms){
+
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+
+                function cambiarAspecto(x){
+                    const myCollection = document.getElementsByTagName("img");
+
+                    for (let i = 0; i < myCollection.length; i++) {
+                    if(myCollection[i].src==x.src){
+                        myCollection[i].style.opacity = 0.1;
+                    }
+
+                    }
+                }
+
+             async   function cambiarAspectoTodos(){
+                    const myCollection = document.getElementsByTagName("img");
+
+                    for (let i = 0; i < myCollection.length; i++) {
+                        await sleep(1000);
+                        myCollection[i].style.opacity = 0.1;
+
+                    }
+                }
+
+              async  function restaurarAspectoTodos(){
+                    const myCollection = document.getElementsByTagName("img");
+                    
+                    for (let i = 0; i < myCollection.length; i++) {
+                        await sleep(1000);
+                        myCollection[i].style.opacity = 1;
+                    }
+                }
+
+        </script>
+        <button type="button" onClick='restaurarAspectoTodos()'>Mostrar</button>
+
+        <button type="button" onClick='cambiarAspectoTodos()'>Ocultar</button>
+<br>
+    <img style="height: 80px;width: 150px;" onclick="cambiarAspecto(this)" src="a.jpg"><br>
+    <img style="height: 80px;width: 150px;" onclick="cambiarAspecto(this)" src="b.jpg"><br>
+    <img style="height: 80px;width: 150px;" onclick="cambiarAspecto(this)" src="c.jpg"><br>
+    <img style="height: 80px;width: 150px;" onclick="cambiarAspecto(this)" src="d.jpg"><br>
+    <img style="height: 80px;width: 150px;" onclick="cambiarAspecto(this)" src="e.jpg"><br>
+    <img style="height: 80px;width: 150px;" onclick="cambiarAspecto(this)" src="f.jpg">
+
+</body>
+   
+</html>

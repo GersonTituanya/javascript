@@ -1,0 +1,63 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <script>
+
+    $(document).ready(function(){
+
+
+        $("tr").mouseover(function(){
+
+            $(this).css('background-color' , 'blue');
+
+        });
+
+        $("tr").mouseout(function(){
+
+        $(this).css('background-color' , 'white');
+
+        });
+
+        $("td").click(function(){
+
+            var cosa = prompt('Escribe lo que quieres añadir  la tabla','')
+
+            $(this).append(cosa);
+
+        });
+
+
+    });
+           
+
+    </script>
+    
+        
+
+<table style="border: 1px solid black;width: 800px;height: 500px;text-align: center;">
+
+<tr><td>1</td><td>1</td><td>1</td></tr>
+<tr><td>1</td><td>1</td><td>1</td></tr>
+<tr><td>1</td><td>1</td><td>1</td></tr>
+<tr><td>1</td><td>1</td><td>1</td></tr>
+<tr><td>1</td><td>1</td><td>1</td></tr>
+<tr><td>1</td><td>1</td><td>1</td></tr>
+<tr><td>1</td><td>1</td><td>1</td></tr>
+<tr><td>1</td><td>1</td><td>1</td></tr>
+<tr><td>1</td><td>1</td><td>1</td></tr>
+<tr><td>1</td><td>1</td><td>1</td></tr>
+
+</table>
+
+
+</body>
+   
+</html>

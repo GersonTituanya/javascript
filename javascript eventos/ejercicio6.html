@@ -1,0 +1,100 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+
+<head>
+
+    <style>
+    
+    div{ width: 100px; height:100px;}
+    
+    </style>
+    
+    </head>
+    
+    <body>
+
+        <script>
+
+            function salir_rojo(){
+                
+                let rojo = document.getElementById('c1');
+                if(rojo.onmouseout){
+                    alert("Se ha salido de rojo");
+                }
+                
+            }
+
+            function entrar_blanco(){
+                
+                let blanco = document.getElementById('c2');
+                if(blanco.onmouseover){
+                    alert("Se ha entrado en blanco");
+                }
+    
+            }
+
+            function cambiar_azul_down(){
+                
+                let azul = document.getElementById('c3');
+                if(azul.onmousedown){
+                    azul.style.background='brown';
+                }
+            }
+
+
+            function cambiar_azul_up(){
+                
+                let azul = document.getElementById('c3');
+                if(azul.onmouseup){
+                    azul.style.background='pink';
+                }
+            }
+            
+
+        </script>
+    
+       <div id="c1" style="background: red" onmouseout='salir_rojo()'></div>
+    
+       <div id="c2" style="background: white" onmouseover='entrar_blanco()'></div>
+    
+       <div id="c3" style="background: blue" onmouseup='cambiar_azul_up()' onmousedown='cambiar_azul_down()'></div>
+
+       <div id="c4" style="background: rgb(26, 255, 0)" onmousemove='myFunction(event)' onmouseout='clearCoor()'></div>
+
+       <p id="demo"></p>
+
+<script>
+function myFunction(e) {
+  let x = e.clientX;
+  let y = e.clientY;
+  let coor = "Coordinates: (" + x + "," + y + ")";
+  document.getElementById("demo").innerHTML = coor;
+}
+
+function clearCoor() {
+  document.getElementById("demo").innerHTML = "";
+}
+</script>
+
+       <div id="c5" style="background: rgb(0, 0, 0)" onmouseenter='bigImg(this)'  onmouseleave='normalImg(this)'></div>
+
+       <script>
+        function bigImg(x) {
+          x.style.height = "200px";
+          x.style.width = "100%";
+        }
+        
+        function normalImg(x) {
+          x.style.height = "100px";
+          x.style.width = "100px";
+        }
+        </script>
+
+    
+    </body>
+    
+   
+</html>

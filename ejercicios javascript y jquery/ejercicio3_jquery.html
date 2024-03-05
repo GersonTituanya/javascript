@@ -1,0 +1,77 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div id="tablero-juego"></div>
+    
+        <script>
+
+$(document).ready(function (){
+    const imagenes = ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo8GlAB25avzyZAvjJ12XqdTSUA52zhIf7fA&usqp=CAU','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVC25Pk1SfcyYaevzfxZ7XS6_eUi6ZH5O0-Q&usqp=CAU','https://dca.gob.gt/noticias-guatemala-diario-centro-america/wp-content/uploads/2019/05/Bob-Esponja-20-a%C3%B1os.jpg']
+    const totalPares = 3
+    let cartasVolteadas = []
+    let paresEncontrados = 0
+
+    function crearTablero() {
+        const tableroJuego = $('#tablero-juego')
+        const todasLasCartas = [...imagenes,...imagenes].sort(() => Math.random() - 0.5)
+        todasLasCartas.forEach((imagen,indice) => {
+            const carta = $('<div/>',{
+                'data-indice':indice,
+                'data-imagen':imagen,
+                html: '<img src="https://image.spreadshirtmedia.net/image-server/v1/designs/180633542,width=178,height=178.png"><br>',
+                click: voltearCarta
+            });
+            tableroJuego.append(carta)
+        });
+    }
+
+
+    function voltearCarta() {
+        const carta = $(this)
+        if(cartasVolteadas.length < 2){
+            carta.addClass('volteada')
+            cartasVolteadas.push({
+                indice: carta.data('indice'),
+                imagen: carta.data('imagen'),
+            });
+            carta.css( 'transform' , 'rotateY(180deg)')
+            carta.html('<img src="'+carta.data('imagen')+'">')
+            if(cartasVolteadas.length === 2) {
+                setTimeout(verificarEmparejamiento, 500)
+            }
+        }
+    }
+
+
+    function verificarEmparejamiento() {
+        const [carta1,carta2] = cartasVolteadas
+        const cartas = $('.volteada')
+        if(carta1.imagen === carta2.imagen){
+            cartas.removeClass('volteada')
+            paresEncontrados++
+            if(paresEncontrados === totalPares){
+                alert('Todas las parejas encontradas')
+            }
+        }else{
+                cartas.css('transform','')
+                cartas.removeClass('volteada')
+                cartas.html('<img src="https://image.spreadshirtmedia.net/image-server/v1/designs/180633542,width=178,height=178.png"><br>')
+        }
+        cartasVolteadas = []
+    }
+    crearTablero();
+});
+
+        </script>
+        
+</body>
+   
+</html>

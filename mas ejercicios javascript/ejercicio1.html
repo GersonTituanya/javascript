@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ejercicio 1</title>
+
+<script type="text/javascript">
+
+
+function muestraOculta(x) {
+
+    var enlace_1 = document.getElementById('enlace_1');
+
+    var enlace_2 = document.getElementById('enlace_2');
+
+    var enlace_3 = document.getElementById('enlace_3');
+
+    var contenidos_1 = document.getElementById('contenidos_1');
+
+    var contenidos_2 = document.getElementById('contenidos_2');
+
+    var contenidos_3 = document.getElementById('contenidos_3');
+
+    if(enlace_1==x){
+
+        if (contenidos_1.style.display=='none') {
+            contenidos_1.style.display='block';
+            enlace_1.innerHTML='Ocultar contenidos';
+        }else{
+            contenidos_1.style.display='none';
+            enlace_1.innerHTML='Mostrar contenidos';
+        }
+    }
+    else if(enlace_2==x){
+
+        if (contenidos_2.style.display=='none') {
+            contenidos_2.style.display='block';
+            enlace_2.innerHTML='Ocultar contenidos';
+        }else{
+            contenidos_2.style.display='none';
+            enlace_2.innerHTML='Mostrar contenidos';
+        }
+    }
+    else if(enlace_3==x){
+
+        if (contenidos_3.style.display=='none') {
+            contenidos_3.style.display='block';
+            enlace_3.innerHTML='Ocultar contenidos';
+        }else{
+            contenidos_3.style.display='none';
+            enlace_3.innerHTML='Mostrar contenidos';
+        }
+    }
+}
+</script>
+</head>
+
+<body>
+
+<p id="contenidos_1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor, pede. Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis, faucibus ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu, at posuere ante quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis scelerisque.</p>
+<a id="enlace_1" href="#" onclick="muestraOculta(this)">Ocultar contenidos</a>
+
+<br/>
+
+<p id="contenidos_2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor, pede. Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis, faucibus ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu, at posuere ante quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis scelerisque.</p>
+<a id="enlace_2" href="#" onclick="muestraOculta(this)">Ocultar contenidos</a>
+
+<br/>
+
+<p id="contenidos_3">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed mattis enim vitae orci. Phasellus libero. Maecenas nisl arcu, consequat congue, commodo nec, commodo ultricies, turpis. Quisque sapien nunc, posuere vitae, rutrum et, luctus at, pede. Pellentesque massa ante, ornare id, aliquam vitae, ultrices porttitor, pede. Nullam sit amet nisl elementum elit convallis malesuada. Phasellus magna sem, semper quis, faucibus ut, rhoncus non, mi. Duis pellentesque, felis eu adipiscing ullamcorper, odio urna consequat arcu, at posuere ante quam non dolor. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis scelerisque.</p>
+<a id="enlace_3" href="#" onclick="muestraOculta(this)">Ocultar contenidos</a>
+
+</body>
+
+</html>
+

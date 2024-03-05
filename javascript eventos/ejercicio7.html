@@ -1,0 +1,100 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+
+<head>
+
+    <style>
+    
+    div{ width: 100px; height:100px;}
+    
+    </style>
+    
+    </head>
+    
+    <body>
+
+        <script>
+
+            function salir_rojo(){
+                
+                let rojo = document.getElementById('c1');
+                if(rojo.ontouchend){
+                    alert("Se ha salido de rojo");
+                }
+                
+            }
+
+            function entrar_blanco(){
+                
+                let blanco = document.getElementById('c2');
+                if(blanco.ontouchstart){
+                    alert("Se ha entrado en blanco");
+                }
+    
+            }
+
+            function cambiar_azul_touchstart(){
+                
+                let azul = document.getElementById('c3');
+                if(azul.ontouchstart){
+                    azul.style.background='brown';
+                }
+            }
+
+
+            function cambiar_azul_touchcancel(){
+                
+                let azul = document.getElementById('c3');
+                if(azul.ontouchcancel){
+                    azul.style.background='pink';
+                }
+            }
+            
+
+        </script>
+    
+       <div id="c1" style="background: red" ontouchend='salir_rojo()'></div>
+    
+       <div id="c2" style="background: white" ontouchstart='entrar_blanco()'></div>
+    
+       <div id="c3" style="background: blue" ontouchcancel='cambiar_azul_touchcancel()' ontouchstart='cambiar_azul_touchstart()'></div>
+
+       <div id="c4" style="background: rgb(26, 255, 0)" ontouchmove='myFunction(event)' ontouchend='clearCoor()'></div>
+
+       <p id="demo"></p>
+
+<script>
+function myFunction(e) {
+  let x = e.clientX;
+  let y = e.clientY;
+  let coor = "Coordinates: (" + x + "," + y + ")";
+  document.getElementById("demo").innerHTML = coor;
+}
+
+function clearCoor() {
+  document.getElementById("demo").innerHTML = "";
+}
+</script>
+
+       <div id="c5" style="background: rgb(0, 0, 0)" ontochstart='bigImg(this)'  ontochend='normalImg(this)'></div>
+
+       <script>
+        function bigImg(x) {
+          x.style.height = "200px";
+          x.style.width = "100%";
+        }
+        
+        function normalImg(x) {
+          x.style.height = "100px";
+          x.style.width = "100px";
+        }
+        </script>
+
+    
+    </body>
+    
+   
+</html>

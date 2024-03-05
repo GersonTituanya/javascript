@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+  table,th,td {
+    border : 2px solid blue;
+    border-collapse: collapse;
+  }
+
+  th,td {
+    padding: 5px;
+  }
+  </style>
+  </head>
+
+<body>
+
+<h2>Use HTTP POST to Get JSON Data from a PHP Server</h2>
+
+<table id="demo"></table>
+
+<script>
+const dbParam = JSON.stringify({"limit":10});
+const xmlhttp = new XMLHttpRequest();
+xmlhttp.onload = function() {
+  myObj = JSON.parse(this.responseText);
+  let table="<tr><th style='color: red;'>Nombre</th><th style='color: red'>Empresa</th></tr>";
+  for (let x in myObj) { 
+    table += "<tr><td style='color: red;'>" +
+        myObj[x].name +
+    "</td><td style='color: red;'>" +
+        myObj[x].name +
+    "</td></tr>";
+  }
+// Haber esto va bien , ahora solo habria que saberse el nombre de mas campos de la 
+// base de datos para poder poner la informacion correcta en la tabla
+  document.getElementById("demo").innerHTML = table;
+}
+xmlhttp.open("post", "json_demo_db_post.php");
+xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+xmlhttp.send("x=" + dbParam);
+</script>
+
+<p>Try changing the "limit" property from 10 to 5.</p>
+
+</body>
+</html>

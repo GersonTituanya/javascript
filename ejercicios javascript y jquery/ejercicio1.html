@@ -1,0 +1,133 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+</head>
+
+<body>
+
+    
+
+    <ol id="a">
+
+        <script>
+
+            var lista = ['Item 1' , 'Item2' , 'Item3' , 'Item4']
+
+            function borrarListaCompleta(){
+
+                for (let i = 0; i < lista.length; i++) {
+                delete lista[i];
+                }
+                for (let i = 0; i < lista.length; i++) {
+                    document.getElementById("a").innerHTML += '<li>'+lista[i]+'</li>'+'<br>';
+                }
+                document.getElementById("a").innerHTML += '-------------------------------------------------------------------------------';
+            }
+
+            function restaurarLista(){
+
+                lista = ['Item 1' , 'Item2' , 'Item3' , 'Item4']
+                for (let i = 0; i < lista.length; i++) {
+                    document.getElementById("a").innerHTML += '<li>'+lista[i]+'</li>'+'<br>';
+                }
+                document.getElementById("a").innerHTML += '-------------------------------------------------------------------------------';
+            }
+
+
+            function añadirElementoAlFinal(){
+
+            var cosa = prompt('Escribe el nombre del item a añadir al final','')
+
+            lista.push(cosa);
+                for (let i = 0; i < lista.length; i++) {
+                    document.getElementById("a").innerHTML += '<li>'+lista[i]+'</li>'+'<br>';
+                }
+                document.getElementById("a").innerHTML += '-------------------------------------------------------------------------------';
+            }
+
+            function añadirElementoAlPrincipio(){
+
+            var cosa = prompt('Escribe el nombre del item a añadir al principio','')
+
+            lista.unshift(cosa);
+                for (let i = 0; i < lista.length; i++) {
+                    document.getElementById("a").innerHTML += '<li>'+lista[i]+'</li>'+'<br>';
+                }
+                document.getElementById("a").innerHTML += '-------------------------------------------------------------------------------';
+            }
+
+            function eliminarUltimoElemento(){
+
+            lista.pop();
+                for (let i = 0; i < lista.length; i++) {
+                    document.getElementById("a").innerHTML += '<li>'+lista[i]+'</li>'+'<br>';
+                }
+                document.getElementById("a").innerHTML += '-------------------------------------------------------------------------------';
+            }
+
+            function eliminarPrimerElemento(){
+
+            lista.shift();
+                for (let i = 0; i < lista.length; i++) {
+                    document.getElementById("a").innerHTML += '<li>'+lista[i]+'</li>'+'<br>';
+                }
+                document.getElementById("a").innerHTML += '-------------------------------------------------------------------------------';
+            }
+
+            function eliminarDosPrimerosElementos(){
+
+            lista.shift();
+            lista.shift();
+                for (let i = 0; i < lista.length; i++) {
+                    document.getElementById("a").innerHTML += '<li>'+lista[i]+'</li>'+'<br>';
+                }
+                document.getElementById("a").innerHTML += '-------------------------------------------------------------------------------';
+            }
+
+            function eliminarDosUltimosElementos(){
+
+            lista.pop();
+            lista.pop();
+
+                for (let i = 0; i < lista.length; i++) {
+                    document.getElementById("a").innerHTML += '<li>'+lista[i]+'</li>'+'<br>';
+                }
+                document.getElementById("a").innerHTML += '-------------------------------------------------------------------------------';
+            }
+
+
+            
+                for (let i = 0; i < lista.length; i++) {
+                    document.getElementById("a").innerHTML += '<li>'+lista[i]+'</li>'+'<br>';
+                }
+                document.getElementById("a").innerHTML += '-------------------------------------------------------------------------------';
+            
+
+        </script>
+        
+
+    </ol>
+
+    <button type="button" onClick='borrarListaCompleta()'>Eliminar la lista completa</button>
+
+    <button type="button" onClick='restaurarLista()'>Restaurar lista</button>
+
+    <button type="button" onClick='añadirElementoAlFinal()'>Añadir un elemento al final de la lista</button>
+
+    <button type="button" onClick='añadirElementoAlPrincipio()'>Añadir un elemento al principio de la lista</button>
+
+    <button type="button" onClick='eliminarUltimoElemento()'>Eliminar el último elemento</button>
+
+    <button type="button" onClick='eliminarPrimerElemento()'>Eliminar el primer elemento</button>
+
+    <button type="button" onClick='eliminarDosPrimerosElementos()'>Eliminar el primero y segundo elemento</button>
+
+    <button type="button" onClick='eliminarDosUltimosElementos()'>Eliminar los dos últimos</button>
+
+</body>
+   
+</html>

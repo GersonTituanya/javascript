@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ejercicio 5</title>
+
+<style type="text/css">
+body {font-family: arial, helvetica;}
+#info {width:160px; border:thin solid silver; padding:.5em; position:fixed;}
+#info h1 {margin: 0;}
+</style>
+
+<script type="text/javascript">
+
+window.addEventListener('click',informacion);
+
+function informacion(elEvento) {
+	var evento = elEvento || window.event;
+	var mensaje = ['izquierda arriba', 'izquierda abajo', 'derecha arriba' , 'derecha abajo']
+	muestraInformacion(mensaje,evento);
+}
+
+function muestraInformacion(mensaje,evento) {
+	var dimensiones= [];
+	dimensiones =tamanoVentanaNavegador();
+	var x = evento.clientX;
+	var y = evento.clientY;
+	if(x<dimensiones[0]/2&&y<=dimensiones[1]/2){
+		var mensajeF =mensaje[0];
+	}
+	if(x<dimensiones[0]/2&&y>dimensiones[1]/2){
+		var mensajeF =mensaje[1];
+	}
+	if(x>dimensiones[0]/2&&y<=dimensiones[1]/2){
+		var mensajeF =mensaje[2];
+	}
+	if(x>dimensiones[0]/2&&y>dimensiones[1]/2){
+		var mensajeF =mensaje[3];
+	}
+	document.getElementById("info").innerHTML = '<h1>'+mensajeF+'</h1>'+'<br>Dimensiones width : '+dimensiones[0]+' heigth : '+dimensiones[1];
+}
+
+function tamanoVentanaNavegador(){
+	// Adaptada de http://www.howtocreate.co.uk/tutorials/javascript/browserwindow
+	var dimensiones = [];
+	
+	if(typeof(window.innerWidth) == 'number') {
+		// No es IE
+		dimensiones = [window.innerWidth, window.innerHeight];
+	} else if(document.documentElement && (document.documentElement.clientWidth || document.documentElement.clientHeight)) {
+		//IE 6 en modo estandar (no quirks)
+		dimensiones = [document.documentElement.clientWidth, document.documentElement.clientHeight];
+	} else if(document.body && (document.body.clientWidth || document.body.clientHeight)) {
+		//IE en modo quirks
+		dimensiones = [document.body.clientWidth, document.body.clientHeight];
+	}
+	
+	return dimensiones;
+}
+
+
+</script>
+</head>
+
+<body>
+
+<div id="info"></div>
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+</body>
+</html>
+

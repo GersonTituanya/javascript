@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ejercicio 6</title>
+
+<style type="text/css">
+body {font-family: arial, helvetica;}
+#info {width:160px; border:thin solid silver; padding:.5em; position:fixed;}
+#info h1 {margin: 0;}
+</style>
+
+<script type="text/javascript">
+var cont =0;
+window.addEventListener('click',informacion);
+
+function informacion(elEvento) {
+	var evento = elEvento || window.event;
+	
+	muestraInformacion(evento);
+}
+
+function muestraInformacion(evento) {
+	var dimensiones= [];
+	dimensiones =tamanoVentanaNavegador();
+	var x = evento.clientX;
+	var y = evento.clientY;
+        
+        if(x<dimensiones[0]/2.1&&y<=dimensiones[1]/2.1){
+            alert('Cuadrado color azul')
+        }
+        if(x<dimensiones[0]/2.1&&y>dimensiones[1]/2.1){
+            alert('Cuadrado color amarillo')
+        }
+        if(x>dimensiones[0]/2.1&&y<=dimensiones[1]/2.1){
+            alert('Cuadrado color rojo')
+        }
+        if(x>dimensiones[0]/2.1&&y>dimensiones[1]/2.1){
+            alert('Cuadrado color verde')
+        }
+
+    
+	
+}
+
+function tamanoVentanaNavegador(){
+	// Adaptada de http://www.howtocreate.co.uk/tutorials/javascript/browserwindow
+	var dimensiones = [];
+	
+	if(typeof(window.innerWidth) == 'number') {
+		// No es IE
+		dimensiones = [window.innerWidth, window.innerHeight];
+	} else if(document.documentElement && (document.documentElement.clientWidth || document.documentElement.clientHeight)) {
+		//IE 6 en modo estandar (no quirks)
+		dimensiones = [document.documentElement.clientWidth, document.documentElement.clientHeight];
+	} else if(document.body && (document.body.clientWidth || document.body.clientHeight)) {
+		//IE en modo quirks
+		dimensiones = [document.body.clientWidth, document.body.clientHeight];
+	}
+	
+	return dimensiones;
+}
+
+function dibujar(){
+    var dimensiones= [];
+	dimensiones =tamanoVentanaNavegador();
+    document.getElementById("a").innerHTML = '<div style="float: left;background-color: blue;width: '+dimensiones[0]/2.1+'px;height: '+dimensiones[1]/2.1+'px;"></div>';
+    document.getElementById("b").innerHTML = '<div style="float: left;background-color: red;width: '+dimensiones[0]/2.1+'px;height: '+dimensiones[1]/2.1+'px;"></div>';
+    document.getElementById("c").innerHTML = '<div style="float: left;background-color: yellow;width: '+dimensiones[0]/2.1+'px;height: '+dimensiones[1]/2.1+'px;"></div>';
+    document.getElementById("d").innerHTML = '<div style="float: left;background-color: green;width: '+dimensiones[0]/2.1+'px;height: '+dimensiones[1]/2.1+'px;"></div>';
+}
+
+window.setInterval(dibujar,1000);
+
+</script>
+</head>
+
+<body onload="dibujar()">
+
+<div id="a" style="float: left;"></div><div id="b"></div><div id="c"></div><div id="d"></div>
+
+</body>
+</html>

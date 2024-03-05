@@ -1,0 +1,51 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+</head>
+
+<body>
+
+    
+        <script>
+
+                function cambiarAspecto(x){
+                    const myCollection = document.getElementsByTagName("img");
+
+                    for (let i = 0; i < myCollection.length; i++) {
+                        if (myCollection[i].src!=x.src){
+                        myCollection[i].style.opacity = 0.4;
+                        }else{
+                            myCollection[i].style.border = 5+'px'+' Solid '+' black'
+                        }
+                    }
+                }
+
+                function restaurarAspecto(x){
+                    const myCollection = document.getElementsByTagName("img");
+
+                    for (let i = 0; i < myCollection.length; i++) {
+                        if (myCollection[i].src!=x.src){
+                        myCollection[i].style.opacity = 1;
+                        }else{
+                            myCollection[i].style.border = null;
+                        }
+                    }
+                }
+
+        </script>
+        
+
+    <img  onmouseover="cambiarAspecto(this)" onmouseout="restaurarAspecto(this)" src="a.jpg">
+    <img  onmouseover="cambiarAspecto(this)" onmouseout="restaurarAspecto(this)" src="b.jpg">
+    <img  onmouseover="cambiarAspecto(this)" onmouseout="restaurarAspecto(this)" src="c.jpg">
+    <img  onmouseover="cambiarAspecto(this)" onmouseout="restaurarAspecto(this)" src="d.jpg">
+    <img  onmouseover="cambiarAspecto(this)" onmouseout="restaurarAspecto(this)" src="e.jpg">
+    <img  onmouseover="cambiarAspecto(this)" onmouseout="restaurarAspecto(this)" src="f.jpg">
+
+</body>
+   
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    
+
+    <ol>
+
+
+
+        <script>
+$("ol").append('<li>'+'Item1'+'</li>'+'<li>'+'Item2'+'</li>'+'<li>'+'Item3'+'</li>'+'<li>'+'Item4'+'</li>');
+
+        $(document).ready(function(){
+
+
+            $("#btn1").click(function(){
+
+            $("ol").empty();
+
+            });
+
+            $("#btn2").click(function(){
+
+                $("ol").empty();
+
+                    $("ol").append('<li>'+'Item1'+'</li>'+'<li>'+'Item2'+'</li>'+'<li>'+'Item3'+'</li>'+'<li>'+'Item4'+'</li>');
+                
+            });
+            
+            $("#btn3").click(function(){
+
+                var cosa = prompt('Escribe el nombre del item a añadir al final','')
+                $("ol").append('<li>'+cosa+'</li>');
+                
+            });
+
+            $("#btn4").click(function(){
+
+            var cosa = prompt('Escribe el nombre del item a añadir al principio','')
+            $("ol").prepend('<li>'+cosa+'</li>');
+
+            });
+
+            $("#btn5").click(function(){
+
+                $("ol").children().last().remove();
+            
+                
+            });
+
+            $("#btn6").click(function(){
+
+            $("ol").children().first().remove();
+            
+                
+            });
+
+            $("#btn7").click(function(){
+
+                $("ol").children().first().remove();
+                $("ol").children().first().remove();
+            
+                
+            });
+
+            $("#btn8").click(function(){
+
+            $("ol").children().last().remove();
+            $("ol").children().last().remove();
+            
+                
+            });
+
+        });
+
+        </script>
+
+        
+
+    </ol>
+
+    <button id="btn1" type="button" >Eliminar la lista completa</button>
+
+    <button id="btn2" type="button" >Restaurar lista</button>
+
+    <button id="btn3" type="button" >Añadir un elemento al final de la lista</button>
+
+    <button id="btn4" type="button" >Añadir un elemento al principio de la lista</button>
+
+    <button id="btn5" type="button" >Eliminar el último elemento</button>
+
+    <button id="btn6" type="button" >Eliminar el primer elemento</button>
+
+    <button id="btn7" type="button" >Eliminar el primero y segundo elemento</button>
+
+    <button id="btn8" type="button" >Eliminar los dos últimos</button>
+
+</body>
+   
+</html>

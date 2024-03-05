@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="demo">
+
+<h2>The XMLHttpRequest Object</h2>
+
+
+</div>
+
+<button type="button" onclick="loadDoc('ajax_info.txt', myFunction)">Change Content
+</button>
+
+<script>
+function loadDoc(url, xFunction) {
+  const xhttp=new XMLHttpRequest();
+  xhttp.onload = function() {xFunction(this);}
+  xhttp.open("GET", url);
+  xhttp.send();
+}
+
+function myFunction(xhttp) {
+    
+  document.getElementById("demo").innerHTML = xhttp.responseText;
+ 
+
+  var contenido = document.getElementById("demo").childNodes;
+
+
+  var simbolos, color;
+simbolos = "0123456789ABCDEF";
+color = "#";
+
+
+  for(var i = 0; i < contenido.length; i++){
+
+      for(var i = 0; i < 6; i++){
+  color = color + simbolos[Math.floor(Math.random() * 16)];
+    }
+    contenido[i].style.backgroundColor=color;
+    contenido[i].innerHTML="<h1>"+contenido[i].innerHTML+"</h1>";
+}
+
+
+
+}
+</script>
+</body>
+</html>

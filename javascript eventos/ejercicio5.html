@@ -1,0 +1,88 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+
+<head>
+
+    <style>
+    
+    div{ width: 100px; height:100px;}
+    
+    </style>
+    
+    </head>
+    
+    <body>
+
+        <script>
+
+            function mensaje_rojo_a_blanco(){
+                if(salir_rojo()&&entrar_blanco()){
+
+                    alert("Se ha entrado a blanco desde rojo");
+
+                }
+
+            }
+
+            function mensaje_azul_a_blanco(){
+                if(salir_azul()&&entrar_blanco()){
+
+                    alert("Se ha entrado a blanco desde azul");
+
+                }
+
+            }
+
+            function mensaje_solo_blanco(){
+                if((!salir_azul())&&(!salir_rojo())&&entrar_blanco()){
+
+                    alert("Se ha entrado solo a blanco");
+
+                }
+
+            }
+
+            function salir_rojo(){
+                let si=false;
+                let rojo = document.getElementById('c1');
+                if(rojo.onmouseout){
+                    si=true;
+                }
+                return si;
+            }
+
+            function entrar_blanco(){
+                let si=false;
+                let blanco = document.getElementById('c2');
+                if(blanco.onmouseover){
+                    si=true;
+                }
+                return si;
+            }
+
+            function salir_azul(){
+                let si=false;
+                let azul = document.getElementById('c3');
+                if(azul.onmouseout){
+                    si=true;
+                }
+                return si;
+            }
+            
+            //No se hacerlo para mi asi tienen sentido , osea booleanos con las acciones y son true o false , no se .
+
+        </script>
+    
+       <div id="c1" style="background: red" onmouseout='mensaje_rojo_a_blanco()'></div>
+    
+       <div id="c2" style="background: white" onmouseover='mensaje_solo_blanco()'></div>
+    
+       <div id="c3" style="background: blue" onmouseout='mensaje_azul_a_blanco()'></div>
+    
+    </body>
+    
+   
+</html>

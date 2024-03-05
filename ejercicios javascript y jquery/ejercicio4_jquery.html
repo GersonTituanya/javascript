@@ -1,0 +1,74 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    
+        <script>
+            var sleep = function(ms){
+
+return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
+
+        $(document).ready(function(){
+
+
+            $("img").click(function(){
+
+                $(this).css('opacity' , '0.1');
+
+            });
+
+
+            $("#btn1").click(async function(){
+                var cont = 0
+while(cont<6) {
+
+    
+
+                $("img").eq(cont).fadeTo(1000,1);
+                cont++;
+                await sleep(1000);
+}
+  
+            });
+
+            $("#btn2").click(async function(){
+
+                var cont = 0
+while(cont<6) {
+
+                $("img").eq(cont).fadeTo(1000,0.1);
+                cont++;
+                await sleep(1000);
+}
+
+            });
+
+        });
+               
+
+        </script>
+        <button id="btn1" type="button" >Mostrar</button>
+
+        <button id="btn2" type="button" >Ocultar</button>
+<br>
+
+    <img style="height: 80px;width: 150px;"  src="a.jpg"><br>
+    <img style="height: 80px;width: 150px;"  src="b.jpg"><br>
+    <img style="height: 80px;width: 150px;"  src="c.jpg"><br>
+    <img style="height: 80px;width: 150px;"  src="d.jpg"><br>
+    <img style="height: 80px;width: 150px;"  src="e.jpg"><br>
+    <img style="height: 80px;width: 150px;"  src="f.jpg">
+
+</body>
+   
+</html>

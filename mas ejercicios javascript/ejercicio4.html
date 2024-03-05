@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ejercicio 4</title>
+
+<script type="text/javascript">
+
+window.addEventListener('mousemove', position);
+
+
+function position(event){
+
+var pantalla_x = event.screenX;
+
+var pantalla_y = event.screenY;
+
+
+var pagina_x = event.pageX;
+
+var pagina_y = event.pageY;
+
+var mousePositions = document.getElementById('a');
+
+mousePositions.innerHTML = 'Cordenadas de la pantalla X : '+pantalla_x+' Y : '+pantalla_y+'<br>'+'Cordenadas de la pagina X : '+pagina_x+' Y : '+pagina_y;
+
+}
+
+</script>
+</head>
+
+<body>
+
+    <div id="a"></div>
+
+</body>
+
+</html>
